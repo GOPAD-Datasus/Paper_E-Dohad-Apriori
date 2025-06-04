@@ -1,0 +1,20 @@
+[project]
+name = "paper-e"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "morsoletodev",email = "106322393+morsoletodev@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas (>=2.2.3,<3.0.0)",
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "efficient-apriori (>=2.0.6,<3.0.0)",
+    "pyarrow (>=20.0.0,<21.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
