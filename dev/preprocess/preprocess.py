@@ -1,6 +1,6 @@
 import pandas as pd
 
-from dev.preprocessing.utils import *
+from dev.preprocess.utils import *
 
 
 def preprocess ():

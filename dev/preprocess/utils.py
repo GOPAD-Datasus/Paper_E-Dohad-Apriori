@@ -29,7 +29,6 @@ def classify (df: pd.DataFrame) -> pd.DataFrame:
 
 
 def remove_outliers (df, column):
-    # TODO: change to series
     Q1 = df[column].quantile(0.25)
     Q3 = df[column].quantile(0.75)
     IQR = Q3 - Q1
