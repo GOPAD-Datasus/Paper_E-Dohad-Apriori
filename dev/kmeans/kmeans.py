@@ -1,9 +1,9 @@
 import pandas as pd
 
-from dev.kmeans.utils import *
+from .utils import apply_pca, normalize, def_number_of_clusters, apply_kmeans
 
 
-def kmeans (df: pd.DataFrame):
+def kmeans(df: pd.DataFrame):
     # PCA
     df_km = df[['APGAR5', 'PESO',
                 'IDANOMAL', 'SEMAGESTAC']].copy()
@@ -21,6 +21,6 @@ def kmeans (df: pd.DataFrame):
     df.loc[:, 'cluster'] = apply_kmeans(n_cluster, df_km)
 
     # to_parquet
-    df.to_parquet('../data/processed/DNprocessed.parquet.gzip',
+    df.to_parquet('data/processed/DNprocessed.parquet.gzip',
                   compression='gzip')
     return df, n_cluster

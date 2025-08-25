@@ -1,8 +1,10 @@
-from dev.apriori.utils import *
+import pandas as pd
+
+from .utils import create_categories, map_categories, apply_apriori, save_rules
 
 
-def apriori (df: pd.DataFrame, n_cluster: int):
-    df = feature_processing(df)
+def apriori(df: pd.DataFrame, n_cluster: int) -> None:
+    df = create_categories(df)
     df = map_categories(df)
 
     for number in range(n_cluster):

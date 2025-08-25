@@ -19,29 +19,30 @@ def _semagestac(x):
         return 'Semana de gestação saudável (>37)'
 
 
-def _peso (x):
+def _peso(x):
     if x < 2500:
-        return 0 # risco
+        return 0  # risco
     elif x > 4000:
         return 2
     else:
         return 1
 
 
-def _apgar (x):
+def _apgar(x):
     if x < 7:
         return 0
     else:
         return 1
 
-def feature_processing (df: pd.DataFrame):
+
+def create_categories(df: pd.DataFrame):
     df['SEMAGESTAC'] = df['SEMAGESTAC'].apply(_semagestac)
     df['PESO'] = df['PESO'].apply(_peso)
     df['APGAR5'] = df['APGAR5'].apply(_apgar)
     return df
 
 
-def map_categories (df: pd.DataFrame):
+def map_categories(df: pd.DataFrame):
     map = {
         1: 'Solteira',
         2: 'Casada',
@@ -109,17 +110,16 @@ def map_categories (df: pd.DataFrame):
     return df
 
 
-def apply_apriori (df: pd.DataFrame):
+def apply_apriori(df: pd.DataFrame):
     main_list = list(df.itertuples(index=False, name=None))
     item_sets, rules = apriori(main_list,
-                              min_support=0.25,
-                              min_confidence=0.75,
-                              max_length=5)
+                               min_support=0.25,
+                               min_confidence=0.75,
+                               max_length=5)
     return rules
 
 
-def save_rules (rules, number: int):
-
+def save_rules(rules, number: int):
     list_rhs, list_lhs, list_supp = [], [], []
     list_conf, list_lift, list_conv = [], [], []
 
@@ -132,8 +132,8 @@ def save_rules (rules, number: int):
         list_conv.append(i.conviction)
 
     data = {
-        'rhs': list_rhs,
-        'lhs': list_lhs,
+        'rhs':  list_rhs,
+        'lhs':  list_lhs,
         'supp': list_supp,
         'conf': list_conf,
         'lift': list_lift,
@@ -141,4 +141,4 @@ def save_rules (rules, number: int):
     }
 
     temp = pd.DataFrame(data)
-    temp.to_csv(f'../data/rules/rules_{number}.csv')
+    temp.to_csv(f'data/rules/rules_{number}.csv')

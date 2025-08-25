@@ -1,15 +1,15 @@
 import pandas as pd
 
-from dev.preprocess.utils import *
+from .utils import classify, remove_outliers
 
 
-def preprocess ():
+def preprocess():
     columns = ['RACACOR', 'ESCMAE2010', 'CODOCUPMAE',
                'ESTCIVMAE', 'CONSULTAS', 'MESPRENAT',
                'SEMAGESTAC', 'PESO', 'APGAR5', 'PARTO',
                'IDANOMAL']
 
-    df = pd.read_parquet('../data/raw/DN2023.parquet.gzip',
+    df = pd.read_parquet('data/raw/DN2023.parquet.gzip',
                          columns=columns)
 
     df.dropna(inplace=True)

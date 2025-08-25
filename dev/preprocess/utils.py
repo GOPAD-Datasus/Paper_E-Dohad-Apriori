@@ -1,9 +1,14 @@
 import pandas as pd
-import numpy as np
 
 
 def _class_ocup(x: int):
     x = str(x)
+
+    try:
+        x, _ = x.split('.')
+    except ValueError:
+        pass
+
     if len(x) != 6:
         return 0
     elif x == '999991':  # Estudante
@@ -14,7 +19,7 @@ def _class_ocup(x: int):
         return int(x[:1])
 
 
-def classify (df: pd.DataFrame) -> pd.DataFrame:
+def classify(df: pd.DataFrame) -> pd.DataFrame:
     map = {
         1: 1,
         2: 2,
@@ -28,7 +33,7 @@ def classify (df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def remove_outliers (df, column):
+def remove_outliers(df, column):
     Q1 = df[column].quantile(0.25)
     Q3 = df[column].quantile(0.75)
     IQR = Q3 - Q1
