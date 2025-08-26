@@ -32,7 +32,7 @@ poetry run python main.py
 
 ## 🔮 Methodology
 
-![Methodology](assets/methodology.png)
+![Methodology](./assets/methodology.png)
 
 ## ✨ Dataset
 
