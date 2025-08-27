@@ -33,9 +33,9 @@ poetry run python main.py
 ## 🔮 Methodology
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="dark_Dohad.png">
-  <source media="(prefers-color-scheme: light)" srcset="light_Dohad.png">
-  <img alt="Methodology image" src="light_Dohad.png">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/dark_Dohad.png">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/light_Dohad.png">
+  <img alt="Methodology image" src="./assets/light_Dohad.png">
 </picture>
 
 
