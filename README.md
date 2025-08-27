@@ -32,7 +32,12 @@ poetry run python main.py
 
 ## 🔮 Methodology
 
-![Methodology](./assets/methodology.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="dark_Dohad.png">
+  <source media="(prefers-color-scheme: light)" srcset="light_Dohad.png">
+  <img alt="Methodology image" src="light_Dohad.png">
+</picture>
+
 
 ## ✨ Dataset
 
